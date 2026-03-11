@@ -85,7 +85,7 @@ Before fitting any model, we visualised the raw data to understand its structure
 
 > **Left:** Histogram of all tip values &nbsp;|&nbsp; **Centre:** Tip by Time of Day (Lunch vs Dinner) &nbsp;|&nbsp; **Right:** Tip by Party Size (box plots)
 
-![EDA — Tip Distribution, Time, and Size](output1.png)
+![EDA — Tip Distribution, Time, and Size](outputs/output1.png)
 
 ### Key Observations from EDA
 
@@ -135,7 +135,7 @@ Sampling speed: ~18 draws/s | Total time: ~2m 45s
 
 ### Convergence Diagnostics (Trace Plot)
 
-![Trace Plot — Tips by Time (Gaussian)](output2.png)
+![Trace Plot — Tips by Time (Gaussian)](outputs/output2.png)
 
 ✅ **Convergence assessment:**
 - Both chains (blue and orange) **mix well** across all 2000 draws — no drift or stickiness
@@ -146,7 +146,7 @@ Sampling speed: ~18 draws/s | Total time: ~2m 45s
 
 ### Posterior Distribution
 
-![Posterior Mean Tip by Time — Gaussian Model](output3.png)
+![Posterior Mean Tip by Time — Gaussian Model](outputs/output3.png)
 
 | Group | Posterior Mean | 94% HDI |
 |-------|---------------|---------|
@@ -158,13 +158,13 @@ Sampling speed: ~18 draws/s | Total time: ~2m 45s
 
 ### Forest Plot
 
-![Forest Plot — Mean Tip by Time (Gaussian)](output4.png)
+![Forest Plot — Mean Tip by Time (Gaussian)](outputs/output4.png)
 
 The forest plot confirms: Dinner's posterior mean (~$3.1) is clearly separated from Lunch's (~$2.7). The thick inner bar is the 50% credible interval; the thin outer line is the 94% HDI.
 
 ### Posterior Predictive Check (PPC)
 
-![PPC — Tips by Time (Gaussian)](output5.png)
+![PPC — Tips by Time (Gaussian)](outputs/output5.png)
 
 ⚠️ **Problem revealed by PPC:**
 - Blue lines (posterior predictive samples) spread from **−4 to +10**
@@ -210,7 +210,7 @@ Sampling speed: ~8.5 draws/s | Total time: ~5m 50s
 
 ### Convergence Diagnostics (Trace Plot)
 
-![Trace Plot — Tips by Time (Gamma)](output6.png)
+![Trace Plot — Tips by Time (Gamma)](outputs/output6.png)
 
 ✅ **Convergence assessment:**
 - Chains mix well; traces look like stationary "hairy caterpillars"
@@ -219,7 +219,7 @@ Sampling speed: ~8.5 draws/s | Total time: ~5m 50s
 
 ### Posterior Distribution
 
-![Posterior Mean Tip by Time — Gamma Model](output7.png)
+![Posterior Mean Tip by Time — Gamma Model](outputs/output7.png)
 
 | Group | Posterior Mean | 94% HDI |
 |-------|---------------|---------|
@@ -231,13 +231,12 @@ Sampling speed: ~8.5 draws/s | Total time: ~5m 50s
 
 ### Forest Plot
 
-![Forest Plot — Mean Tip by Time (Gamma)](output8.png)
-
+![Forest Plot — Mean Tip by Time (Gamma)](outputs/output8.png)
 Same conclusion as Gaussian: Dinner > Lunch. The Gamma forest plot intervals are **marginally narrower**, reflecting more efficient use of the data structure.
 
 ### Posterior Predictive Check (PPC)
 
-![PPC — Tips by Time (Gamma)](output9.png)
+![PPC — Tips by Time (Gamma)](outputs/output9.png)
 
 ✅ **Dramatic improvement over Gaussian:**
 - Predictive samples are **bounded at 0** — no negative tip predictions
@@ -247,7 +246,7 @@ Same conclusion as Gaussian: Dinner > Lunch. The Gamma forest plot intervals are
 
 ### Side-by-Side PPC Comparison
 
-![PPC Comparison — Gaussian vs Gamma (Time Models)](output10.png)
+![PPC Comparison — Gaussian vs Gamma (Time Models)](outputs/output10.png)
 
 | Feature | Gaussian PPC | Gamma PPC |
 |---------|-------------|-----------|
@@ -292,7 +291,7 @@ Sampling speed: ~14 draws/s | Total time: ~3m 30s
 
 ### Convergence Diagnostics (Trace Plot)
 
-![Trace Plot — Tips by Size (Gaussian)](output11.png)
+![Trace Plot — Tips by Size (Gaussian)](outputs/output11.png)
 
 ✅ **Convergence assessment:**
 - All 6 size group means (coloured traces) mix well and are clearly separated
@@ -301,7 +300,7 @@ Sampling speed: ~14 draws/s | Total time: ~3m 30s
 
 ### Posterior Distribution — All Groups
 
-![Posterior Mean Tip per Size Group — Gaussian](output12.png)
+![Posterior Mean Tip per Size Group — Gaussian](outputs/output12.png)
 
 Key observations:
 - **Size 1**: Mean = $1.4, very **wide HDI** [0.35, 2.5] — only a handful of size-1 tables observed
@@ -313,13 +312,13 @@ Key observations:
 
 ### Forest Plot
 
-![Forest Plot — Mean Tip per Size Group (Gaussian)](output13.png)
+![Forest Plot — Mean Tip per Size Group (Gaussian)](outputs/output13.png)
 
 The forest plot shows a **clear monotonic increase** in mean tip from size 2 through 6. Size 1 is a notable exception (lower mean, very wide interval due to sparse data).
 
 ### PPC
 
-![PPC — Tips by Size (Gaussian)](output14.png)
+![PPC — Tips by Size (Gaussian)](outputs/output14.png)
 
 Same problem as Time-Gaussian: the predictive envelope extends to negative values (−4 to +10), which is physically impossible.
 
@@ -360,7 +359,7 @@ Sampling speed: ~6.6 draws/s | Total time: ~7m 38s
 
 ### Convergence Diagnostics (Trace Plot)
 
-![Trace Plot — Tips by Size (Gamma)](output15.png)
+![Trace Plot — Tips by Size (Gamma)](outputs/output15.png)
 
 ✅ All chains mix well. `alpha` is well-identified (converged around 4–8). ESS improved significantly vs Gaussian for size-1 group (4951 vs 2643).
 
@@ -370,7 +369,7 @@ Sampling speed: ~6.6 draws/s | Total time: ~7m 38s
 
 ### Forest Plot — Both Models Side by Side
 
-![Forest Plot — Gaussian vs Gamma (All Size Groups)](output16.png)
+![Forest Plot — Gaussian vs Gamma (All Size Groups)](outputs/output16.png)
 
 **Key observations:**
 
@@ -390,7 +389,7 @@ Sampling speed: ~6.6 draws/s | Total time: ~7m 38s
 
 ### Side-by-Side PPC
 
-![PPC Comparison — Gaussian vs Gamma (Size Models)](output17.png)
+![PPC Comparison — Gaussian vs Gamma (Size Models)](outputs/output17.png)
 
 | Feature | Gaussian | Gamma |
 |---------|---------|-------|
@@ -401,7 +400,7 @@ Sampling speed: ~6.6 draws/s | Total time: ~7m 38s
 
 ### Posterior Distribution Grid
 
-![Posterior Distributions — Gaussian (blue) vs Gamma (orange) per Size Group](output18.png)
+![Posterior Distributions — Gaussian (blue) vs Gamma (orange) per Size Group](outputs/output18.png)
 
 Visible differences:
 - **Size 1**: Gaussian mean closer to 0; Gamma mean slightly higher and more concentrated
@@ -463,7 +462,7 @@ For all **15 pairwise combinations** of size groups, we computed the posterior d
 
 > Each panel shows the full posterior distribution of Δ = μᵢ − μⱼ. The **gold band** is the 94% HDI, the **yellow line** is the posterior mean, and the **red dashed line** marks zero (no difference). If the gold band does not cross the red line → strong evidence of a real difference.
 
-![Posterior Distributions of Pairwise Mean Tip Differences — Gamma-Size Model](output19.png)
+![Posterior Distributions of Pairwise Mean Tip Differences — Gamma-Size Model](outputs/output19.png)
 
 **How to read each panel:**
 - **Red dashed line at 0** = "no difference" reference
@@ -491,7 +490,7 @@ For all **15 pairwise combinations** of size groups, we computed the posterior d
 
 > Yellow dotted lines mark effect size thresholds (±0.2, ±0.5, ±0.8). The single **blue bar** (Size 4 vs 5, d ≈ +0.16) is the only comparison where the first group has a marginally higher mean. All other bars are **red** (negative d = first group tips less than second).
 
-![Cohen's d for All Pairwise Size Comparisons](output20.png)
+![Cohen's d for All Pairwise Size Comparisons](outputs/output20.png)
 
 **Reading the bar chart:**
 - All bars except **Size 4 vs 5** extend to the left (negative d) — confirming that in almost every comparison, the larger size group tips more
@@ -620,7 +619,7 @@ idx = pd.Categorical(tips["day"], categories=categories).codes
 
 > **Left:** Tip distribution per day (histogram overlay) &nbsp;|&nbsp; **Right:** Tip by Day (box plots)
 
-![EDA — Tip Distribution and Box Plots by Day](output21.png)
+![EDA — Tip Distribution and Box Plots by Day](outputs/output21.png)
 
 ### Key Observations
 
@@ -773,7 +772,7 @@ NUTS parameters: [μ_g, σ_g, μ, σ]
 
 ### Convergence Diagnostics — Trace Plot
 
-![Trace Plot — Hierarchical_01 (μ, μ_g, σ_g)](output23.png)
+![Trace Plot — Hierarchical_01 (μ, μ_g, σ_g)](outputs/output23.png)
 
 **Reading the trace plot:**
 - **μ panel (top):** Four coloured traces (one per day) — all mix well; posterior densities (left) show clear separation between days (Thur/Fri ≈ $2.5–2.8, Sun ≈ $3.2–3.5)
@@ -842,7 +841,7 @@ Despite divergences, `R̂ = 1.0` and ESS values are reasonable (>1000), meaning 
 
 > Three models displayed simultaneously. Each row = one day. **Blue** = Non-Hierarchical, **Orange** = Hierarchical_00, **Green** = Hierarchical_01. The **white dotted vertical line** = μ_g (shrinkage target from H_00).
 
-![Forest Plot — Non-Hierarchical vs Hierarchical_00 vs Hierarchical_01](output22.png)
+![Forest Plot — Non-Hierarchical vs Hierarchical_00 vs Hierarchical_01](outputs/output22.png)
 
 ### How to Read This Plot
 
@@ -902,7 +901,7 @@ Sun  (n=76):  ← (pulled leftward — mean was above μ_g)
 
 > Each day has three bars (Non-Hierarchical = blue, Hierarchical_00 = orange, Hierarchical_01 = green). Error bars = 94% HDI. Yellow dashed line = μ_g = 3.27 (shrinkage target).
 
-![Posterior Mean Tip by Day — Model Comparison (94% HDI)](output24.png)
+![Posterior Mean Tip by Day — Model Comparison (94% HDI)](outputs/output24.png)
 
 ### Reading the Chart
 
