@@ -160,6 +160,7 @@ Sampling speed: ~18 draws/s | Total time: ~2m 45s
 
 ![Forest Plot — Mean Tip by Time (Gaussian)](outputs/output4.png)
 
+
 The forest plot confirms: Dinner's posterior mean (~$3.1) is clearly separated from Lunch's (~$2.7). The thick inner bar is the 50% credible interval; the thin outer line is the 94% HDI.
 
 ### Posterior Predictive Check (PPC)
@@ -232,6 +233,7 @@ Sampling speed: ~8.5 draws/s | Total time: ~5m 50s
 ### Forest Plot
 
 ![Forest Plot — Mean Tip by Time (Gamma)](outputs/output8.png)
+
 Same conclusion as Gaussian: Dinner > Lunch. The Gamma forest plot intervals are **marginally narrower**, reflecting more efficient use of the data structure.
 
 ### Posterior Predictive Check (PPC)
